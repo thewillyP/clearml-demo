@@ -23,7 +23,7 @@ class SimpleNet(nn.Module):
 
 # Get previous task's checkpoint
 # Method 1: Using task ID (replace with your actual task ID)
-previous_task_id = "YOUR_PREVIOUS_TASK_ID"  # Get this from ClearML UI
+previous_task_id = "8363af96d4f8417583834335112ec9dd"  # Get this from ClearML UI
 previous_task = Task.get_task(task_id=previous_task_id)
 
 # Download the last checkpoint artifact
