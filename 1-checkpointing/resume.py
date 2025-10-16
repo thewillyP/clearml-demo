@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader, TensorDataset
 task = Task.init(project_name="demo", task_name="resume_from_checkpoint")
 
 # Get previous task's output model
-previous_task = Task.get_task(task_id="c8321a734d2a483584a673c38dbf0be1")
+previous_task = Task.get_task(task_id="2009721e49fe4e7996891fc6403d80df")
 checkpoint_path = previous_task.models["output"][-1].get_local_copy()
 
 
