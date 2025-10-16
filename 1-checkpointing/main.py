@@ -57,7 +57,7 @@ for epoch in range(10):
         "optimizer_state_dict": optimizer.state_dict(),
         "loss": avg_loss,
     }
-    torch.save(checkpoint, f"checkpoint_epoch_{epoch}.pth")
+    torch.save(checkpoint, f"1-checkpointing/checkpoint_epoch_{epoch}.pth")
 
     # Register as model artifact
     if epoch % 3 == 0:  # Save every 3 epochs as output model
