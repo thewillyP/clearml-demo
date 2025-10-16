@@ -1,7 +1,7 @@
 from clearml import Task
 
 # Create a test task (this will appear in the ClearML Web UI)
-task = Task.init(project_name="ClearML-Demo", task_name="test_run")
+task = Task.init(project_name="demo", task_name="test_run")
 
 # Log a simple scalar
 for i in range(5):
