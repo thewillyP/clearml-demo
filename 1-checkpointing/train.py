@@ -50,7 +50,7 @@ for epoch in range(10):
     # Log to ClearML
     task.get_logger().report_scalar("loss", "train", avg_loss, epoch)
 
-    # Save checkpoint - ClearML automatically captures this
+    # Save checkpoint - ClearML automatically captures this as artifact
     checkpoint = {
         "epoch": epoch,
         "model_state_dict": model.state_dict(),
@@ -58,10 +58,6 @@ for epoch in range(10):
         "loss": avg_loss,
     }
     torch.save(checkpoint, f"1-checkpointing/checkpoint_epoch_{epoch}.pth")
-
-    # Register as model artifact
-    if epoch % 3 == 0:  # Save every 3 epochs as output model
-        task.update_output_model(model_path=f"1-checkpointing/checkpoint_epoch_{epoch}.pth")
 
 print("Training complete")
 task.close()
