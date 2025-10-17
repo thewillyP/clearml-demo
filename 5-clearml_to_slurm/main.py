@@ -6,7 +6,7 @@ if __name__ == "__main__":
     # Slurm configuration
     slurm_params = {
         "memory": "16GB",
-        "time": "06:00:00",
+        "time": "01:00:00",
         "cpu": 4,
         "gpu": 0,
         "log_dir": "/vast/wlp9800/logs",
@@ -17,6 +17,19 @@ if __name__ == "__main__":
         "setup_commands": "module load python/intel/3.8.6",
         "skip_python_env_install": True,
     }
+    # slurm_params = {
+    #     "memory": "16GB",
+    #     "time": "01:00:00",
+    #     "cpu": 4,
+    #     "gpu": 0,
+    #     "log_dir": "/vast/wlp9800/logs",
+    #     "singularity_overlay": "",
+    #     "singularity_binds": "",
+    #     "container_source": {},
+    #     "use_singularity": False,
+    #     "setup_commands": "module load python/intel/3.8.6",
+    #     "skip_python_env_install": False,
+    # }
     task.connect(slurm_params, name="slurm")
 
     task.execute_remotely(queue_name="slurm_demo", exit_process=True)
