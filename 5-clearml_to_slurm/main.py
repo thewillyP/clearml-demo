@@ -11,7 +11,7 @@ if __name__ == "__main__":
         "gpu": 0,
         "log_dir": "/vast/wlp9800/logs",
         "singularity_overlay": "",
-        "singularity_binds": "/scratch/wlp9800/clearml:/scratch,/vast/wlp9800/upload_markers:/vast/markers",
+        "singularity_binds": "",
         "container_source": {"sif_path": "/scratch/wlp9800/images/devenv-cpu.sif", "type": "sif_path"},
         "use_singularity": True,
         "setup_commands": "module load python/intel/3.8.6",
