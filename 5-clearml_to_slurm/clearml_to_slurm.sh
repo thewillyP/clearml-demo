@@ -2,9 +2,9 @@
 RUN_TIME=${1:-"0-01:00:00"}  # default to 0 days and 6 hour
 RUN_CPUS=${2:-"2"}
 RUN_MEM=${3:-"4GB"}
-LOG_DIR="/vast/wlp9800/logs"  # replace with directory where you want to save logs
+LOG_DIR=${4:-"/vast/wlp9800/logs"}  # replace with directory where you want to save logs
 ENVS=${5:-""}  # comma-separated list of env vars to be made available in slurm job
-QUEUE_NAME="slurm_demo"  # specify your clearml queue
+QUEUE_NAME=${6:-"slurm_demo"}  # specify your clearml queue
 MAX_JOBS=${7:-1950}  # max number of jobs in parallel before throttling
 POLL_INTERVAL=${8:-30}  # seconds between polling clearml server for new jobs
 
@@ -26,7 +26,7 @@ module load python/intel/3.8.6
 
 pip install --upgrade git+https://github.com/thewillyP/clearml_to_slurm.git
 
-to_slurm --queue ${QUEUE_NAME} --envs ${ENVS} --max_jobs ${MAX_JOBS} --poll_interval ${POLL_INTERVAL}
+to_slurm --queue ${QUEUE_NAME} --envs "${ENVS}" --max_jobs ${MAX_JOBS} --poll_interval ${POLL_INTERVAL}
 
 EOF
 

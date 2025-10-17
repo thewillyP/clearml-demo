@@ -10,15 +10,15 @@ if __name__ == "__main__":
         "cpu": 4,
         "gpu": 0,
         "log_dir": "/vast/wlp9800/logs",
-        "setup_commands": "module load python/intel/3.8.6",
         "singularity_overlay": "",
-        "singularity_binds": "",
-        "container_source": {},
-        "use_singularity": False,
-        "skip_python_env_install": False,
+        "singularity_binds": "/scratch/wlp9800/clearml:/scratch,/vast/wlp9800/upload_markers:/vast/markers",
+        "container_source": {"sif_path": "/scratch/wlp9800/images/devenv-cpu.sif", "type": "sif_path"},
+        "use_singularity": True,
+        "setup_commands": "module load python/intel/3.8.6",
+        "skip_python_env_install": True,
     }
     task.connect(slurm_params, name="slurm")
 
-    task.execute_remotely(queue_name="slurm_deno", exit_process=True)
+    task.execute_remotely(queue_name="slurm_demo", exit_process=True)
 
     print("Hello World")
